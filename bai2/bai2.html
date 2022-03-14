@@ -1,0 +1,20 @@
+chuỗi mẫu: <input type="text" id="chuoi_mau">
+<br>
+chuỗi cần tìm: <input type="text" id="can_tim">;
+<button onclick="tim()">Tìm</button>
+<div id="result"></div>
+<script>
+    function tim() {
+        // đếm số lần xuất hiện của chuỗi cần tìm trong chuỗi mẫu
+        const chuoiMau = document.querySelector('#chuoi_mau');
+        const canTim = document.querySelector('#can_tim');
+        let chuoiGoc = chuoiMau.value;
+        let dem = 0;
+        while (chuoiGoc.indexOf(canTim.value) != -1) {
+            dem++;
+            chuoiGoc = chuoiGoc.replace(canTim.value, '');
+        }
+        document.querySelector('#result').innerHTML = 
+                    `chuỗi ${canTim.value} xuất hiện ${dem} lần!`;
+    }
+</script>

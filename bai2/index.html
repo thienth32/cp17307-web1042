@@ -1,0 +1,28 @@
+chuỗi mẫu: <input type="text" id="chuoi_mau">
+<br>
+chuỗi cần tìm: <input type="text" id="can_tim">;
+<button onclick="tim()">Tìm</button>
+<div id="result"></div>
+<script>
+    // let randomNumber = Math.floor(Math.random()*100 + 1);
+    // console.log(randomNumber);
+
+    function tim(){
+        // kiểm tra xem trong thẻ input chuỗi mẫu có 
+        // xuất hiện chuỗi cần tìm hay không
+        // nếu có thì thay thế chuỗi cần tìm bằng chữ poly
+        const chuoiMau = document.querySelector('#chuoi_mau');
+        const canTim = document.querySelector('#can_tim');
+        let timThay = chuoiMau.value.indexOf(canTim.value);
+        let content = "";
+        if(timThay != -1){
+            content += "Có xuất hiện<br>";
+            content += "Kết quả: " 
+                        + chuoiMau.value.replace(canTim.value, 'poly');
+        }else{
+            content = "Không tìm thấy!";
+        }
+        document.querySelector('#result').innerHTML = content;
+    }
+
+</script>

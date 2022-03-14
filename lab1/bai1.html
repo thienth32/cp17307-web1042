@@ -1,0 +1,25 @@
+Số thứ nhất: <input type="text" id="so1">
+<br>
+Số thứ 2: <input type="text" id="so2">
+<br>
+<button onclick="danhSachSo()">Run</button>
+<h3>Kết quả</h3>
+<div id="result"></div>
+
+<script>
+    function danhSachSo(){
+        // lấy giá trị của thẻ input có id = so1
+        const theSo1 = document.querySelector("#so1");
+        const theSo2 = document.querySelector("#so2");
+        const theResult = document.querySelector('#result');
+        let content = "";
+        // console.log(theSo1.value, theSo2.value)
+        for(let i = parseInt(theSo1.value); 
+                        i <= parseInt(theSo2.value); i++){
+            if(i%2==0){
+                content+= i + "<br>";
+            }
+        }
+        theResult.innerHTML = content;
+    }
+</script>

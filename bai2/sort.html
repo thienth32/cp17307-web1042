@@ -1,0 +1,9 @@
+<script>
+    let arr = [];
+    while(arr.length < 10){
+        arr.push(Math.floor(Math.random()*100) + 1);
+    }
+
+    console.log(arr);
+    console.log(arr.sort(function(a, b){return b-a}));
+</script>
