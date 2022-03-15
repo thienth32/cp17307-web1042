@@ -1,0 +1,40 @@
+Nhập dãy số (các số phân biệt bởi dấu cách): <input type="text" id="day_so">
+<br>
+<button onclick="run()">Chạy</button>
+<br>
+Sắp xếp theo thứ tự tăng dần: <span id="ketqua1"></span>
+<br>
+Các số chia hết cho cả 3 và 5: <span id="ketqua2"></span>
+<br>
+Tổng các số: <span id="ketqua3"></span>
+<br>
+Tổng các số trong chuỗi: <span id="ketqua4"></span>
+<br>
+<div class="ketqua4"></div>
+<script>
+    function run() {
+        // yêu cầu lấy dữ liệu từ thẻ input
+        const kq1 = document.querySelector("#ketqua1");
+        const kq2 = document.querySelector("#ketqua2");
+        const kq3 = document.querySelector("#ketqua3");
+        const kq4 = document.querySelector("#ketqua4");
+        const ds = document.querySelector("#day_so");
+        // bóc tách chuỗi lấy số (chuyển chuỗi thành mảng)
+        arr = ds.value.split(" ");
+        // YC1: sau đó sắp xếp mảng số và in ra theo thứ tự giảm ở thẻ #ketqua1
+        kq1.innerHTML = arr.sort(function (a, b) { return a - b });
+        // YC2: lọc các số chia hết cho 3 và 5 rồi hiển thị kết quả ở thẻ #ketqua2
+        kq2.innerHTML = arr.filter(function (value) {
+            return value % 3 == 0 || value % 5 == 0
+        })
+        // YC3: Tính tổng tất cả các số và hiển thị ở thẻ #ketqua3
+        let tong = 0;
+        function tinhtong(x){
+            let y = x;
+            tong += parseInt(y) ;
+        }
+        arr.forEach(tinhtong);
+        kq3.innerHTML = tong;
+        // YC4: kiểm tra xem từng số trong mảng bị trùng lặp bao nhiêu lần, hiển thị ở div#ketqua4
+    }
+</script>
